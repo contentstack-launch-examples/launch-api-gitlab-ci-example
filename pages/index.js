@@ -6,7 +6,7 @@ export default function Home() {
         alt="Contentstack Logo"
         style={styles.Logo}
       />
-      <h1>Welcome to Contentstack Launch !!!</h1>
+      <h1>Welcome to Contentstack Launch !!!!</h1>
       <p>
         This Next.js site is deployed using the <strong>Contentstack Launch APIs</strong> and
         deploys via <strong>GitHub Actions</strong> on every push to the <code>main</code> branch.
