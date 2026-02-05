@@ -1,0 +1,15 @@
+# Runs on push to main branch
+# Set CI/CD Variables in GitLab: Settings → CI/CD → Variables
+
+stages:
+  - deploy
+
+deploy-to-launch:
+  stage: deploy
+  image: node:22-alpine
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
+  before_script:
+    - npm install form-data archiver dotenv
+  script:
+    - node deploy-api.js
