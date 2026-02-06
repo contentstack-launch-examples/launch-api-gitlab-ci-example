@@ -1,6 +1,6 @@
-# Deploy to Contentstack Launch with GitLab CI using Launch API
+# Redeploy to Contentstack Launch with GitLab CI using Launch API
 
-This repository shows how to deploy a Next.js app to **Contentstack Launch** using the [Launch Public API](https://www.contentstack.com/docs/developers/apis/launch-api) file upload with **GitLab CI**. The pipeline (`.gitlab-ci.yml`) runs on push to `main` and uses the deployment script `deploy-api.js`.
+This repository shows how to **redeploy** a Next.js app to **Contentstack Launch** using the [Launch Public API](https://www.contentstack.com/docs/developers/apis/launch-api) file upload with **GitLab CI**. After the first deployment is done from the Launch UI, the pipeline (`.gitlab-ci.yml`) runs on every push to `main` and redeploys the project via the script `deploy-api.js`.
 
 ---
 
@@ -16,12 +16,19 @@ The Launch API supports [**M2M**, **OAuth**, or **Authtoken**](https://www.conte
 | `PROJECT_UID` | Launch project UID |
 | `ENVIRONMENT_UID` | Launch environment UID |
 
+
+## Deployment flow
+
+1. **First deployment:** Do it from the **Launch UI**. Create the project and deploy once.
+2. **Later:** Every push to `main` redeploys the project automatically via this GitLab CI pipeline.
+
 ## Quick start
 
-1. Clone or copy this repo, then **push it to a GitLab project** (create a new project in GitLab and push this code).
-2. Create an app with `launch:manage` or `launch.projects:write` scope (this repo uses M2M; OAuth/Authtoken are also supported by the API).
-3. Set the required variables as CI/CD variables (Settings → CI/CD → Variables), or use `.env` for local runs.
-4. Push to main (or run `npm run deploy` locally).
+1. Deploy once from the **Launch UI**.
+2. Clone or copy this repo and push it to a GitLab project.
+3. Create an app with `launch:manage` or `launch.projects:write` scope (M2M; OAuth/Authtoken also supported).
+4. Add all required variables to GitLab CI/CD Variables or to `.env` for local runs.
+5. Push to `main` to redeploy (or run `npm run deploy` locally).
 
 **Run locally:** Copy `.env.example` to `.env`, fill in values, then run `npm run deploy`.
 
