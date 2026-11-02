@@ -281,11 +281,11 @@ function addDirectoryToArchive(archive, dirPath, basePath, fileCount) {
   return fileCount;
 }
 
-function createZipFile(outputPath) {
+async function createZipFile(outputPath) {
+  const { ZipArchive } = await import('archiver');
   return new Promise((resolve, reject) => {
-    const archiver = require('archiver');
     const output = fs.createWriteStream(outputPath);
-    const archive = archiver('zip', { zlib: { level: 9 } });
+    const archive = new ZipArchive({ zlib: { level: 9 } });
     const fileCount = { count: 0 };
 
     output.on('close', () => resolve());

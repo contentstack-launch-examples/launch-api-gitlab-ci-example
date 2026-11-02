@@ -14,12 +14,15 @@
     "next": "^16.4.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "archiver": "^7.0.1",
+    "archiver": "^8.0.0",
     "dotenv": "^16.4.5",
     "form-data": "^4.0.0"
   },
   "engines": {
     "node": ">=18.0.0",
     "npm": ">=9.0.0"
+  },
+  "overrides": {
+    "minimatch": "^11.0.1"
   }
 }
